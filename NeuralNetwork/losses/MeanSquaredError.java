@@ -1,9 +1,10 @@
 package NeuralNetwork.losses;
 
-public class MeanSquaredError {
-
+public class MeanSquaredError implements LossFunction {
+    
+    @Override
     public double compute(double[] actual, double[] predicted) {
-        //Error Handling for if the predicted set of values does not correspond in length with the true set of values.
+        // Error Handling for if the predicted set of values does not correspond in length with the true set of values.
         if (actual.length != predicted.length) {
             throw new IllegalArgumentException("Arrays must have the same length.");
         }
@@ -17,6 +18,7 @@ public class MeanSquaredError {
         return mse;
     }
 
+    @Override
     public double[] derivative(double[] actual, double[] predicted) {
         if (actual.length != predicted.length) {
             throw new IllegalArgumentException("Arrays must have the same length");
